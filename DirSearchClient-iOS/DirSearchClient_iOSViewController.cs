@@ -5,6 +5,7 @@ using MonoTouch.Foundation;
 using MonoTouch.UIKit;
 using DirectorySearcherLib;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System.Collections.Generic;
 
 namespace DirSearchClient_iOS
 {
@@ -29,22 +30,34 @@ namespace DirSearchClient_iOS
         {
             base.ViewDidLoad();
 
-            
-
-
             // Perform any additional setup after loading the view, typically from a nib.
             SearchButton.TouchUpInside += async (object sender, EventArgs e) =>
-           {
-                User result = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(this)); // add this param
-                if (result.error != null) {
-                    StatusResult.Text = "Error! " + result.error.message.value;
+            {
+                if (string.IsNullOrEmpty(SearchTermText.Text))
+                {
+                    StatusResult.Text = "Please Enter A Valid Search Term";
+                    StatusResult.TextColor = UIColor.Black;
                     GivenResult.Text = "";
                     SurnameResult.Text = "";
                     UpnResult.Text = "";
                     PhoneResult.Text = "";
+                    return;
                 }
-                else if (result.value.Count == 0) {
+
+                List<User> results = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(this));
+                if (results.Count == 0) 
+                {
                     StatusResult.Text = "User Not Found";
+                    StatusResult.TextColor = UIColor.Black;
+                    GivenResult.Text = "";
+                    SurnameResult.Text = "";
+                    UpnResult.Text = "";
+                    PhoneResult.Text = "";
+                } 
+                else if (results[0].error != null) 
+                {
+                    StatusResult.Text = "Error! " + results[0].error;
+                    StatusResult.TextColor = UIColor.Red;
                     GivenResult.Text = "";
                     SurnameResult.Text = "";
                     UpnResult.Text = "";
@@ -52,15 +65,15 @@ namespace DirSearchClient_iOS
                 }
                 else
                 {
+                    StatusResult.TextColor = UIColor.Green;
                     StatusResult.Text = "Success";
-                    GivenResult.Text = result.value[0].givenName;
-                    SurnameResult.Text = result.value[0].surname;
-                    UpnResult.Text = result.value[0].userPrincipalName;
-                    PhoneResult.Text = result.value[0].telephoneNumber == null ? "Not Listed" : result.value[0].telephoneNumber;
+                    GivenResult.Text = results[0].givenName;
+                    SurnameResult.Text = results[0].surname;
+                    UpnResult.Text = results[0].userPrincipalName;
+                    PhoneResult.Text = results[0].telephoneNumber;
                 }
 
-           };
-           
+            };
         }
 
         public override void ViewWillAppear(bool animated)

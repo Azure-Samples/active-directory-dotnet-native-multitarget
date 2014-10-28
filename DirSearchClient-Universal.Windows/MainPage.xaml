@@ -13,6 +13,9 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
         <!-- Title Panel -->
         <StackPanel Grid.Row="0" Margin="20,20,0,0">
@@ -27,44 +30,42 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0" x:Name="searchRow">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="9*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <TextBox Grid.Column="0" x:Name="SearchTermText" VerticalAlignment="Center"></TextBox>
-                <Button Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="search" Click="Search" Width="100">Search</Button>
+                <TextBox Grid.Column="0" x:Name="SearchTermText" VerticalAlignment="Center" PlaceholderText="Enter an Alias"></TextBox>
+                <Button Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="search" Click="Search" Width="100">Search</Button>
             </Grid>
             <TextBlock x:Name="StatusResult" Grid.Row="1" FontSize="20" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Center" Foreground="Green" />
         </Grid>
 
         <!--Search Results-->
-        <Grid Grid.Row="2" x:Name="RootResults" Margin="20,0,20,20">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0" Grid.Row="0">
-                <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">First Name:</TextBlock>
-                <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">Last Name:</TextBlock>
-                <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">UPN:</TextBlock>
-                <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right" >Phone:</TextBlock>
-            </StackPanel>
-            <GridView x:Name="SearchResults" Grid.Row="0" Grid.Column="1" >
-                <GridView.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding givenName}"/>
-                            <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding surname}"/>
-                            <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding userPrincipalName}"/>
-                            <TextBlock FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding telephoneNumber}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </GridView.ItemTemplate>
-            </GridView>
-            
-        </Grid>
+        <GridView x:Name="SearchResults" Grid.Row="3" Margin="0,0,0,0">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="0" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">First Name:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">Last Name:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right">UPN:</TextBlock>
+                        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Right" >Phone:</TextBlock>
+                        <TextBlock Grid.Column="1" Grid.Row="0" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding givenName}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding surname}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="2" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding userPrincipalName}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="3" FontSize="24" TextWrapping="Wrap" Margin="10" HorizontalAlignment="Left" Text="{Binding telephoneNumber}"/>
+                    </Grid>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
+        
     </Grid>
 </Page>

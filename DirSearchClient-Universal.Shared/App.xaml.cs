@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -132,6 +133,18 @@ namespace DirSearchClient_Universal
 
             // TODO: Save application state and stop any background activity
             deferral.Complete();
+        }
+
+        protected override void OnActivated(IActivatedEventArgs args)
+        {
+#if WINDOWS_PHONE_APP
+            if (args is IWebAuthenticationBrokerContinuationEventArgs)
+            {
+                WebAuthenticationBrokerContinuationHelper.SetWebAuthenticationBrokerContinuationEventArgs(args as IWebAuthenticationBrokerContinuationEventArgs);
+            }
+#endif
+
+            base.OnActivated(args);
         }
     }
 }

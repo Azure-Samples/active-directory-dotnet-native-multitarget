@@ -20,40 +20,63 @@ namespace DirectorySearcherLib
         const string graphResourceUri = "https://graph.windows.net";
         public static string graphApiVersion = "2013-11-08";
 
-        public static async Task<User> SearchByAlias(string alias, IAuthorizationParameters parent) // add this param
+        public static async Task<List<User>> SearchByAlias(string alias, IAuthorizationParameters parent) // add this param
         {
-            AuthenticationContext authContext = new AuthenticationContext(authority);
             AuthenticationResult authResult = null;
-            User result = null;
+            JObject jResult = null;
+            List<User> results = new List<User>();;
             try
             {
+                AuthenticationContext authContext = new AuthenticationContext(authority);
                 authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
             }
             catch (Exception ee)
             {
-                return new User { error = new OdataError { code = "MyCode", message = new Message { lang = "en", value = "Error on Acquire Token" } } };
+                results.Add(new User { error = ee.Message });
+                return results;
             }
 
             try
             {
-                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
+                //string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
+                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=startswith(mailNickname, '{3}')", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
                 HttpClient client = new HttpClient();
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
                 HttpResponseMessage response = await client.SendAsync(request);
 
                 string content = await response.Content.ReadAsStringAsync();
-                result = JsonConvert.DeserializeObject<User>(content);
-
+                jResult = JObject.Parse(content);
             }
-
             catch (Exception ee)
             {
-                return new User { error = new OdataError { code = "MyCode", message = new Message { lang = "en", value = "Error on GraphAPI Call" } } };
+                results.Add(new User { error = ee.Message });
+                return results;
             }
 
-            return result;
+            if (jResult["odata.error"] != null)
+            {
+                results.Add(new User { error = (string)jResult["odata.error"]["message"]["value"] });
+                return results;
+            }
+            if (jResult["value"] == null)
+            {
+                results.Add(new User { error = "Unknown Error." });
+                return results;
+            }
+            foreach (JObject result in jResult["value"])
+            {
+                results.Add(new User
+                {
+                    displayName = (string)result["displayName"],
+                    givenName = (string)result["givenName"],
+                    surname = (string)result["surname"],
+                    userPrincipalName = (string)result["userPrincipalName"],
+                    telephoneNumber = (string)result["telephoneNumber"] == null ? "Not Listed." : (string)result["telephoneNumber"]
+                });
+            }
 
+            return results;
         }
     }
 }

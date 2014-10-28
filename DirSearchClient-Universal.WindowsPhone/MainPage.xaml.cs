@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DirectorySearcherLib;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -27,6 +29,9 @@ namespace DirSearchClient_Universal
             this.InitializeComponent();
 
             this.NavigationCacheMode = NavigationCacheMode.Required;
+            List<User> results = new List<User>();
+            results.Add(new User());
+            SearchResults.ItemsSource = results;
         }
 
         /// <summary>
@@ -43,6 +48,11 @@ namespace DirSearchClient_Universal
             // Windows.Phone.UI.Input.HardwareButtons.BackPressed event.
             // If you are using the NavigationHelper provided by some templates,
             // this event is handled for you.
+        }
+
+        private async void Search(object sender, RoutedEventArgs e)
+        {
+            await UnivDirectoryHelper.Search(sender, e, SearchResults, SearchTermText, StatusResult, new AuthorizationParameters());
         }
     }
 }

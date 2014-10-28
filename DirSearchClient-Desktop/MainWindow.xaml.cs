@@ -26,34 +26,33 @@ namespace DirSearchClient_Desktop
         public MainWindow()
         {
             InitializeComponent();
-            List<UserInfo> results = new List<UserInfo>();
+            List<User> results = new List<User>();
             SearchResults.ItemsSource = results;            
         }
 
         private async void Search(object sender, RoutedEventArgs e)
         {
-            List<UserInfo> results = new List<UserInfo>();
             if (string.IsNullOrEmpty(SearchTermText.Text)) 
             {
                 MessageBox.Show("Please enter a valid search term.");
                 return;
             }
 
-            User result = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(PromptBehavior.Auto, this.Handle));
-            if (result.error != null) 
+            List<User> results = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(PromptBehavior.Auto, this.Handle));
+            if (results.Count == 0)
             {
-                results.Add(new UserInfo { Property = "Error! ", Value = result.error.message.value });
+                StatusResult.Text = "User Not Found. Try Another Term.";
+                StatusResult.Foreground = new SolidColorBrush(Colors.Black);
             }
-            else if (result.value.Count == 0)
+            else if (results[0].error != null) 
             {
-                results.Add(new UserInfo { Property = "Not Found", Value = "User Not Found. Try Another Term." });
+                StatusResult.Text = "Error! " + results[0].error;
+                StatusResult.Foreground = new SolidColorBrush(Colors.Red);
             }
             else
             {
-                results.Add(new UserInfo { Property = "First Name: ", Value = result.value[0].givenName });
-                results.Add(new UserInfo { Property = "Last Name: ", Value = result.value[0].surname });
-                results.Add(new UserInfo { Property = "UPN: ", Value = result.value[0].userPrincipalName });
-                results.Add(new UserInfo { Property = "Phone: ", Value = result.value[0].telephoneNumber == null ? "Not Listed" : result.value[0].telephoneNumber });
+                StatusResult.Text = "Success";
+                StatusResult.Foreground = new SolidColorBrush(Colors.Green);
             }
 
             SearchResults.ItemsSource = results;
@@ -66,11 +65,5 @@ namespace DirSearchClient_Desktop
                 return interopHelper.Handle;
             }
         }
-    }
-
-    public class UserInfo
-    {
-        public string Property { get; set; }
-        public string Value { get; set; }
     }
 }

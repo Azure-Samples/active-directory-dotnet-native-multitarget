@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc" variant="6xAndEarlier">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733.0"/>
     </dependencies>
@@ -25,113 +25,96 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="" borderStyle="roundedRect" minimumFontSize="17" id="37" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
-                                <rect key="frame" x="20" y="66" width="280" height="30"/>
+                                <rect key="frame" x="20" y="66" width="196" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="38" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES">
-                                <rect key="frame" x="20" y="104" width="280" height="30"/>
+                                <rect key="frame" x="205" y="66" width="104" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" colorSpace="calibratedRGB" red="0.96470588235294119" green="0.94509803921568625" blue="0.94509803921568625" alpha="1"/>
                                 </state>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name:" lineBreakMode="tailTruncation" minimumFontSize="10" id="39" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" misplaced="YES" textAlignment="right">
-                                <rect key="frame" x="20" y="202" width="91" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="First Name:" lineBreakMode="tailTruncation" minimumFontSize="10" id="39" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" textAlignment="left" fixedFrame="YES">
+                                <rect key="frame" x="20" y="172" width="91" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" id="62" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsFontSizeToFit="NO">
+                                <rect key="frame" x="38" y="201" width="262" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name:" lineBreakMode="tailTruncation" minimumFontSize="10" id="45" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" misplaced="YES" textAlignment="right">
-                                <rect key="frame" x="16" y="264" width="97" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="95" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" fixedFrame="YES">
+                                <rect key="frame" x="16" y="117" width="289" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="UPN:" lineBreakMode="tailTruncation" minimumFontSize="10" id="46" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" misplaced="YES" textAlignment="right">
-                                <rect key="frame" x="12" y="324" width="91" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Last Name:" lineBreakMode="tailTruncation" minimumFontSize="10" id="119" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" textAlignment="left" fixedFrame="YES">
+                                <rect key="frame" x="20" y="240" width="91" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" id="120" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsFontSizeToFit="NO">
+                                <rect key="frame" x="38" y="274" width="262" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone:" lineBreakMode="tailTruncation" minimumFontSize="10" id="47" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" misplaced="YES" textAlignment="right">
-                                <rect key="frame" x="12" y="389" width="91" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="UPN:" lineBreakMode="tailTruncation" minimumFontSize="10" id="123" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" textAlignment="left" fixedFrame="YES">
+                                <rect key="frame" x="20" y="315" width="91" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" id="127" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsFontSizeToFit="NO">
+                                <rect key="frame" x="38" y="344" width="262" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="62" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="44" y="231" width="42" height="21"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Phone:" lineBreakMode="tailTruncation" minimumFontSize="10" id="128" translatesAutoresizingMaskIntoConstraints="NO" numberOfLines="8" textAlignment="left" fixedFrame="YES">
+                                <rect key="frame" x="20" y="379" width="91" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" id="129" translatesAutoresizingMaskIntoConstraints="NO" fixedFrame="YES" adjustsFontSizeToFit="NO">
+                                <rect key="frame" x="38" y="408" width="262" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="63" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="44" y="295" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="64" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="51" y="353" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" minimumFontSize="10" id="79" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
-                                <rect key="frame" x="61" y="427" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" id="95" translatesAutoresizingMaskIntoConstraints="NO" textAlignment="center" fixedFrame="YES">
-                                <rect key="frame" x="139" y="158" width="42" height="21"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="134" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="70" y="848" width="160" height="50"/>
+                            </collectionReusableView>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="63" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="65"/>
-                            <constraint firstItem="64" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="66"/>
-                            <constraint firstItem="63" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="67"/>
-                            <constraint firstItem="64" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="68"/>
-                            <constraint firstItem="63" firstAttribute="height" secondItem="62" secondAttribute="height" constant="0.0" id="69"/>
-                            <constraint firstItem="64" firstAttribute="height" secondItem="62" secondAttribute="height" constant="0.0" id="70"/>
-                            <constraint firstItem="63" firstAttribute="height" secondItem="62" secondAttribute="height" constant="0.0" id="71"/>
-                            <constraint firstItem="64" firstAttribute="height" secondItem="62" secondAttribute="height" constant="0.0" id="72"/>
-                            <constraint firstItem="39" firstAttribute="trailing" secondItem="45" secondAttribute="trailing" constant="0.0" id="73"/>
-                            <constraint firstItem="39" firstAttribute="trailing" secondItem="46" secondAttribute="trailing" constant="0.0" id="74"/>
-                            <constraint firstItem="39" firstAttribute="trailing" secondItem="47" secondAttribute="trailing" constant="0.0" id="75"/>
-                            <constraint firstItem="79" firstAttribute="centerY" secondItem="47" secondAttribute="centerY" constant="0.0" id="80"/>
-                            <constraint firstItem="46" firstAttribute="centerY" secondItem="64" secondAttribute="centerY" constant="0.0" id="81"/>
-                            <constraint firstItem="45" firstAttribute="centerY" secondItem="63" secondAttribute="centerY" constant="0.0" id="82"/>
-                            <constraint firstItem="39" firstAttribute="centerY" secondItem="62" secondAttribute="centerY" constant="0.0" id="83"/>
-                            <constraint firstItem="63" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="84"/>
-                            <constraint firstItem="64" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="85"/>
-                            <constraint firstItem="79" firstAttribute="centerX" secondItem="62" secondAttribute="centerX" constant="0.0" id="86"/>
-                        </constraints>
                     </view>
                     <connections>
                         <outlet property="SearchTermText" destination="37" id="name-outlet-37"/>
                         <outlet property="SearchButton" destination="38" id="name-outlet-38"/>
                         <outlet property="GivenLabel" destination="39" id="name-outlet-39"/>
-                        <outlet property="SurnameLabel" destination="45" id="name-outlet-45"/>
-                        <outlet property="UpnLabel" destination="46" id="name-outlet-46"/>
-                        <outlet property="PhoneLabel" destination="47" id="name-outlet-47"/>
                         <outlet property="GivenResult" destination="62" id="name-outlet-62"/>
-                        <outlet property="PhoneResult" destination="79" id="name-outlet-79"/>
-                        <outlet property="UpnResult" destination="64" id="name-outlet-64"/>
-                        <outlet property="SurnameResult" destination="63" id="name-outlet-63"/>
                         <outlet property="StatusResult" destination="95" id="name-outlet-95"/>
+                        <outlet property="SurnameLabel" destination="119" id="name-outlet-119"/>
+                        <outlet property="SurnameResult" destination="120" id="name-outlet-120"/>
+                        <outlet property="UpnLabel" destination="123" id="name-outlet-123"/>
+                        <outlet property="PhoneLabel" destination="128" id="name-outlet-128"/>
+                        <outlet property="PhoneResult" destination="129" id="name-outlet-129"/>
+                        <outlet property="UpnResult" destination="127" id="name-outlet-127"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
