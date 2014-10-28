@@ -35,8 +35,32 @@ namespace DirSearchClient_iOS
             // Perform any additional setup after loading the view, typically from a nib.
             SearchButton.TouchUpInside += async (object sender, EventArgs e) =>
            {
-               ResultLabel.Text = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(this)); // add this param
+                User result = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new AuthorizationParameters(this)); // add this param
+                if (result.error != null) {
+                    StatusResult.Text = "Error! " + result.error.message.value;
+                    GivenResult.Text = "";
+                    SurnameResult.Text = "";
+                    UpnResult.Text = "";
+                    PhoneResult.Text = "";
+                }
+                else if (result.value.Count == 0) {
+                    StatusResult.Text = "User Not Found";
+                    GivenResult.Text = "";
+                    SurnameResult.Text = "";
+                    UpnResult.Text = "";
+                    PhoneResult.Text = "";
+                }
+                else
+                {
+                    StatusResult.Text = "Success";
+                    GivenResult.Text = result.value[0].givenName;
+                    SurnameResult.Text = result.value[0].surname;
+                    UpnResult.Text = result.value[0].userPrincipalName;
+                    PhoneResult.Text = result.value[0].telephoneNumber == null ? "Not Listed" : result.value[0].telephoneNumber;
+                }
+
            };
+           
         }
 
         public override void ViewWillAppear(bool animated)

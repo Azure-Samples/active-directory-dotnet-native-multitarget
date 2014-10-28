@@ -16,7 +16,19 @@ namespace DirSearchClient_iOS
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UILabel ResultLabel { get; set; }
+		UILabel GivenLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel GivenResult { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel PhoneLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel PhoneResult { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -26,11 +38,43 @@ namespace DirSearchClient_iOS
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UITextField SearchTermText { get; set; }
 
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel StatusResult { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel SurnameLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel SurnameResult { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel UpnLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel UpnResult { get; set; }
+
 		void ReleaseDesignerOutlets ()
 		{
-			if (ResultLabel != null) {
-				ResultLabel.Dispose ();
-				ResultLabel = null;
+			if (GivenLabel != null) {
+				GivenLabel.Dispose ();
+				GivenLabel = null;
+			}
+			if (GivenResult != null) {
+				GivenResult.Dispose ();
+				GivenResult = null;
+			}
+			if (PhoneLabel != null) {
+				PhoneLabel.Dispose ();
+				PhoneLabel = null;
+			}
+			if (PhoneResult != null) {
+				PhoneResult.Dispose ();
+				PhoneResult = null;
 			}
 			if (SearchButton != null) {
 				SearchButton.Dispose ();
@@ -39,6 +83,26 @@ namespace DirSearchClient_iOS
 			if (SearchTermText != null) {
 				SearchTermText.Dispose ();
 				SearchTermText = null;
+			}
+			if (StatusResult != null) {
+				StatusResult.Dispose ();
+				StatusResult = null;
+			}
+			if (SurnameLabel != null) {
+				SurnameLabel.Dispose ();
+				SurnameLabel = null;
+			}
+			if (SurnameResult != null) {
+				SurnameResult.Dispose ();
+				SurnameResult = null;
+			}
+			if (UpnLabel != null) {
+				UpnLabel.Dispose ();
+				UpnLabel = null;
+			}
+			if (UpnResult != null) {
+				UpnResult.Dispose ();
+				UpnResult = null;
 			}
 		}
 	}
