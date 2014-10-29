@@ -15,7 +15,7 @@ namespace DirectorySearcherLib
     public static class DirectorySearcher
     {
         public static string clientId = "e11a0451-ac9d-4c89-afd8-d2fa3322ef68";
-        public static string authority = "https://login.windows.net/common";
+        public static string commonAuthority = "https://login.windows.net/common";
         public static Uri returnUri = new Uri("http://li");        
         const string graphResourceUri = "https://graph.windows.net";
         public static string graphApiVersion = "2013-11-08";
@@ -24,10 +24,13 @@ namespace DirectorySearcherLib
         {
             AuthenticationResult authResult = null;
             JObject jResult = null;
-            List<User> results = new List<User>();;
+            List<User> results = new List<User>();
+
             try
             {
-                AuthenticationContext authContext = new AuthenticationContext(authority);
+                AuthenticationContext authContext = new AuthenticationContext(commonAuthority);
+                if (authContext.TokenCache.ReadItems().Count() > 0)
+                    authContext = new AuthenticationContext(authContext.TokenCache.ReadItems().First().Authority);
                 authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
             }
             catch (Exception ee)

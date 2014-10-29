@@ -2,7 +2,7 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="1000">
-    <Grid Margin="12">
+    <Grid Margin="12,12,12,0">
         <Grid.Resources>
             <VisualBrush x:Key="SearchHint" Stretch="None" AlignmentX="Left" AlignmentY="Top">
                 <VisualBrush.Transform>
@@ -16,9 +16,8 @@
                 </VisualBrush.Visual>
             </VisualBrush>
         </Grid.Resources>
-        <StackPanel Grid.Row="0" Margin="5" VerticalAlignment="Top" Height="351">
+        <StackPanel Grid.Row="0" Margin="5,5,5,0" VerticalAlignment="Top" Height="295">
             <GroupBox Margin="0,0,0,0" Header="Search for Users By Alias">
-
                 <Grid Margin="0,0,0,0" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -43,7 +42,7 @@
             </GroupBox>
             <TextBlock x:Name="StatusResult" Margin="0,10,0,10" Height="Auto" TextAlignment="Center" Foreground="Green" />
             <DataGrid x:Name="SearchResults" Margin="0,0,0,0" AutoGenerateColumns="False"  ScrollViewer.CanContentScroll="True" ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
-        		IsReadOnly="True" MinWidth="350"  CanUserAddRows="False" CanUserDeleteRows="False" Height="230" GridLinesVisibility="None" Background="#FFFFFFFF">
+        		IsReadOnly="True" MinWidth="350"  CanUserAddRows="False" CanUserDeleteRows="False" Height="180" GridLinesVisibility="None" Background="#FFFFFFFF">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First Name" Binding="{Binding givenName}"  Width="1*"/>
                     <DataGridTextColumn Header="Last Name" Binding="{Binding surname}"  Width="1*"/>
