@@ -70,3 +70,7 @@ This step and the following are actually optional - the sample is configured to 
 ### Step 6:  Run the sample(s)
 
 Clean the solution, rebuild the solution, and run it!  Explore each different platform by running each project, searching for users by their alias, logging in with users in your tenant, and viewing results.  You'll notice that the user needs to consent to the app on first login - this is because the app is configured to work with any tenant.  If you would like to remove this consent flow, see the comments in the `Directory Searcher` class.
+
+## How to Recreate this Sample
+
+Coming soon.
