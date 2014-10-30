@@ -1,7 +1,7 @@
 NativeClient-MultiTarget-DotNet
 ===============================
 
-This sample solution shows how to build a native application that uses Xamarin to target several different platforms with a single shared C# code base.  The application signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access tojen through the OAuth 2.0 protocol.  The access token is sent to AAD's Graph API to authenticate the user and obtain information about other users in their organization.
+This sample solution shows how to build a native application that uses Xamarin to target several different platforms with a single shared C# code base.  The application signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol.  The access token is sent to AAD's Graph API to authenticate the user and obtain information about other users in their organization.
 
 ## About The Sample
 If you would like to get started immediately, skip this section and jump to *How To Run The Sample*.
