@@ -17,6 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-Universal.W
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-Universal.WindowsPhone", "DirSearchClient-Universal.WindowsPhone\DirSearchClient-Universal.WindowsPhone.csproj", "{734ED68C-1B2C-45B4-B700-0F1893C5808D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BA05CB04-63C9-455D-9C1C-97E3A01C18F1}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		DirSearchClient-Universal.Shared\DirSearchClient-Universal.Shared.projitems*{6b726884-9f98-48f2-83d7-73fe8150edf0}*SharedItemsImports = 4
