@@ -26,9 +26,6 @@ namespace DirSearchClient_Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Id.agentWebView = global::DirSearchClient_Android.Resource.Id.agentWebView;
-			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.Layout.WebAuthenticationBroker = global::DirSearchClient_Android.Resource.Layout.WebAuthenticationBroker;
-			global::Microsoft.IdentityModel.Clients.ActiveDirectory.Resource.String.ApplicationName = global::DirSearchClient_Android.Resource.String.ApplicationName;
 		}
 		
 		public partial class Attribute
@@ -65,9 +62,6 @@ namespace DirSearchClient_Android
 		
 		public partial class Id
 		{
-			
-			// aapt resource value: 0x7f060010
-			public const int agentWebView = 2131099664;
 			
 			// aapt resource value: 0x7f060005
 			public const int givenLabel = 2131099653;
@@ -133,9 +127,6 @@ namespace DirSearchClient_Android
 			// aapt resource value: 0x7f030000
 			public const int Main = 2130903040;
 			
-			// aapt resource value: 0x7f030001
-			public const int WebAuthenticationBroker = 2130903041;
-			
 			static Layout()
 			{
 				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
@@ -149,14 +140,14 @@ namespace DirSearchClient_Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040000
-			public const int ApplicationName = 2130968576;
+			// aapt resource value: 0x7f040001
+			public const int ApplicationName = 2130968577;
 			
 			// aapt resource value: 0x7f040003
 			public const int EmptyString = 2130968579;
 			
-			// aapt resource value: 0x7f040001
-			public const int Hello = 2130968577;
+			// aapt resource value: 0x7f040000
+			public const int Hello = 2130968576;
 			
 			// aapt resource value: 0x7f040002
 			public const int InvalidSearch = 2130968578;
