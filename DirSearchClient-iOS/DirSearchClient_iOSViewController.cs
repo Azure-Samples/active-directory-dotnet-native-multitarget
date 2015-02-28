@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Drawing;
-
-using MonoTouch.Foundation;
-using MonoTouch.UIKit;
+using Foundation;
+using UIKit;
 using DirectorySearcherLib;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using System.Collections.Generic;
