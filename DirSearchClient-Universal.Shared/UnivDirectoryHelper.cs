@@ -13,7 +13,7 @@ namespace DirSearchClient_Universal
 {
     static class UnivDirectoryHelper
     {
-        public static async Task Search(object sender, RoutedEventArgs e, GridView SearchResults, TextBox SearchTermText, TextBlock StatusResult, IAuthorizationParameters parent)
+        public static async Task Search(object sender, RoutedEventArgs e, GridView SearchResults, TextBox SearchTermText, TextBlock StatusResult, IPlatformParameters parent)
         {
             if (string.IsNullOrEmpty(SearchTermText.Text))
             {

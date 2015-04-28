@@ -36,7 +36,7 @@ namespace DirSearchClient_Universal
 
         private async void Search(object sender, RoutedEventArgs e)
         {
-            await UnivDirectoryHelper.Search(sender, e, SearchResults, SearchTermText, StatusResult, new AuthorizationParameters(PromptBehavior.Auto, false));
+            await UnivDirectoryHelper.Search(sender, e, SearchResults, SearchTermText, StatusResult, new PlatformParameters(PromptBehavior.Auto, false));
         }
     }
 }

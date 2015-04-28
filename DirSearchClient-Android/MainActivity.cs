@@ -55,7 +55,7 @@ namespace DirSearchClient_Android
                     return;
                 }
 
-                List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new AuthorizationParameters(this));
+                List<User> results = await DirectorySearcher.SearchByAlias(searchTermText.Text, new PlatformParameters(this));
                 if (results.Count == 0)
                 {
                     statusResult.SetText(Resource.String.UserNotFound);

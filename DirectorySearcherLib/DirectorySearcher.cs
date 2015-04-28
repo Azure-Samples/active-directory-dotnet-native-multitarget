@@ -20,7 +20,7 @@ namespace DirectorySearcherLib
         const string graphResourceUri = "https://graph.windows.net";
         public static string graphApiVersion = "2013-11-08";
 
-        public static async Task<List<User>> SearchByAlias(string alias, IAuthorizationParameters parent) // add this param
+        public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent) // add this param
         {
             AuthenticationResult authResult = null;
             JObject jResult = null;
