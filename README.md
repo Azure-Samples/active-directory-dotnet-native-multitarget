@@ -1,11 +1,10 @@
 ---
-services:
-platforms:
-author: azure
+services: active-directory
+platforms: dotnet, xamarin
+author: dstrockis
 ---
 
 Integrating Azure AD into a cross platform Xamarin application
-===============================
 
 This sample solution shows how to build a native application that uses Xamarin to target several different platforms with a single shared C# code base.  The application signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol.  The access token is sent to AAD's Graph API to authenticate the user and obtain information about other users in their organization.
 
@@ -30,7 +29,7 @@ To run this entire sample you will need:
 - [Xamarin for Windows](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, Visual Studio Integration (recommended for this sample), and optionally Xamarin Studio (in lieu of Visual Studio).
 - [Xamarin for OS X](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, Xamarin.Mac, and Xamarin Studio.
 
-Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [http://www.windowsazure.com](http://www.windowsazure.com).  All of the Azure AD features used by this sample are available free of charge.
+Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [https://azure.microsoft.com](https://azure.microsoft.com).  All of the Azure AD features used by this sample are available free of charge.
 
 ### Step 1: Setup your Xamarin development environment
 
@@ -42,7 +41,7 @@ For this sample, we recommend that you use the Visual Studio Integration to run 
 
 Once you have completed your IDE setup, from your shell or command line run:
 
-`git clone https://github.com/AzureADSamples/NativeClient-MultiTarget-DotNet.git`
+`git clone https://github.com/Azure-Samples/active-directory-dotnet-native-multitarget.git`
 
 or download and exact the repository .zip file.
 
