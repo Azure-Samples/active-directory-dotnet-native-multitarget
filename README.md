@@ -63,7 +63,7 @@ This step and the following are actually optional - the sample is configured to 
 8. Enter a Redirect Uri value of your choosing and of form `http://MyDirectorySearcherApp`.
 10. While still in the Azure portal, click the Configure tab of your application.
 11. Find the Client ID value and copy it aside, you will need this later when configuring your application.
-13. In the Permissions to Other Applications configuration section, ensure that "Access your organization's directory" and "Enable sign-on and read user's profiles" are selected under "Delegated permissions" for Windows Azure Active Directory.  Save the configuration.
+13. In the Permissions to Other Applications configuration section, ensure that "Access your organization's directory" and "Enable sign-on and read user's profiles" are selected under "Delegated permissions" for Azure Active Directory.  Save the configuration.
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
