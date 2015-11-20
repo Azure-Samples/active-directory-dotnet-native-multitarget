@@ -18,7 +18,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace DirSearchClient_Universal
+namespace DirSearchClient_WindowsStore
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
@@ -35,8 +35,33 @@ namespace DirSearchClient_Universal
         }
 
         private async void Search(object sender, RoutedEventArgs e)
-        {
-            await UnivDirectoryHelper.Search(sender, e, SearchResults, SearchTermText, StatusResult, new PlatformParameters(PromptBehavior.Auto, false));
+        {            
+            if (string.IsNullOrEmpty(SearchTermText.Text))
+            {
+                MessageDialog dialog = new MessageDialog("Please enter a valid search term.");
+                await dialog.ShowAsync();
+                return;
+            }
+
+            List<User> results = await DirectorySearcher.SearchByAlias(SearchTermText.Text, new PlatformParameters(PromptBehavior.Auto, false));
+            if (results.Count == 0)
+            {
+                StatusResult.Text = "User Not Found. Try Another Term.";
+                StatusResult.Foreground = new SolidColorBrush(Windows.UI.Colors.White);
+                results.Add(new User());
+            }
+            else if (results[0].error != null)
+            {
+                StatusResult.Text = "Error! " + results[0].error;
+                StatusResult.Foreground = new SolidColorBrush(Windows.UI.Colors.Red);
+            }
+            else
+            {
+                StatusResult.Text = "Success";
+                StatusResult.Foreground = new SolidColorBrush(Windows.UI.Colors.Green);
+            }
+
+            SearchResults.ItemsSource = results;
         }
-    }
+    }    
 }
