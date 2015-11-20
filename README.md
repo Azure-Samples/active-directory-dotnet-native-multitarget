@@ -11,9 +11,9 @@ This sample solution shows how to build a native application that uses Xamarin t
 ## About The Sample
 If you would like to get started immediately, skip this section and jump to *How To Run The Sample*.
 
-This sample solution is a "Directory Searcher" that contains five projects, each of which is a different type of application: iOS, Android, Windows Phone 8.1, Windows Store 8.1, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all five applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.  In addition, the Windows Phone and Windows Store applications are written as a Universal App, so even UI code is shared across these two projects.
+This sample solution is a "Directory Searcher" that contains five projects, implementing a commpkn component and apps for four different target platforms: iOS, Android, Windows Store 8.1, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all four applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.  
 
-In this application, the platform specific projects are effectively only responsible from presenting the UI.  Each application receives an input search term from the user, and calls a method `SearchByAlias` in the application's `DirectorySearcherLib` PCL.  `SearchByAlias` returns a `User` object, which is used to present information about the search results such as the user's name, user principal name, and phone number.
+In this application, the platform specific projects are effectively only responsible from presenting the UI. Each application receives an input search term from the user, and calls a method `SearchByAlias` in the application's `DirectorySearcherLib` PCL.  `SearchByAlias` returns a `User` object, which is used to present information about the search results such as the user's name, user principal name, and phone number.
 
 The `DirectorySearcherLib` PCL is the application's shared C# code base, which contains both the identity related logic and the search related logic.  It leverages ADAL.NET v3, which is also a PCL, to automatically sign users in with the OAuth 2.0 protocol, acquire an access token for the AAD Graph API, cache tokens, maintain user sessions, and so on.  It then queries AAD's Graph API for information about a user in the authenticated user's tenant with a matching alias, and returns results to the platform specific UI code.  By writing both the identity and search logic in the `DirectorySearcherLib` PCL, the code only needs to be written once and can be reused across each platform.
 
@@ -21,9 +21,9 @@ The `DirectorySearcherLib` PCL is the application's shared C# code base, which c
 
 To run this entire sample you will need:
 - An Internet connection
-- A Windows machine (necessary if you want to run the Windows Phone, Windows Store, or WPF apps)
+- A Windows machine (necessary if you want to run the Windows Store or WPF apps)
 - An OS X machine (necessary if you want to run the iOS app)
-- Visual Studio 2013 (recommended) or Xamarin Studio
+- Visual Studio 2015 (recommended) or Xamarin Studio
 - An Azure subscription (a free trial is sufficient)
 - A Xamarin Business subscription (a [free trial](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) is sufficient)
 - [Xamarin for Windows](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, Visual Studio Integration (recommended for this sample), and optionally Xamarin Studio (in lieu of Visual Studio).
@@ -67,7 +67,7 @@ This step and the following are actually optional - the sample is configured to 
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
-1. Open the solution in Visual Studio 2013.
+1. Open the solution in Visual Studio 2015.
 2. Open the `DirectorySearcher.cs` file in the `DirectorySearcherLib (Portable)` project.
 3. Find the `clientId` member variable and replace its value with the Client Id you copied from the Azure portal.
 5. Find the `returnUri` member variable and replace the value with the redirect Uri you registerd in the Azure portal.
