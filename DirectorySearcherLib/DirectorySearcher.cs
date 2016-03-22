@@ -45,7 +45,6 @@ namespace DirectorySearcherLib
             try
             {
                 string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
-                //string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=startswith(mailNickname, '{3}')", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
                 HttpClient client = new HttpClient();
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
