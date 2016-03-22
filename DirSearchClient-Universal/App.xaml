@@ -1,7 +1,8 @@
 ﻿<Application
-    x:Class="DirSearchClient_WindowsStore.App"
+    x:Class="DirSearchClient_Universal.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:DirSearchClient_WindowsStore">
+    xmlns:local="using:DirSearchClient_Universal"
+    RequestedTheme="Light">
 
 </Application>
