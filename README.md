@@ -13,7 +13,7 @@ This sample solution shows how to build a native application that uses Xamarin t
 ## About The Sample
 If you would like to get started immediately, skip this section and jump to *How To Run The Sample*.
 
-This sample solution is a "Directory Searcher" that contains five projects, implementing a commpkn component and apps for four different target platforms: iOS, Android, Windows Store 8.1, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all four applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.  
+This sample solution is a "Directory Searcher" that contains five projects, implementing a common component and apps for four different target platforms: iOS, Android, Windows Store 8.1, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all four applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.  
 
 In this application, the platform specific projects are effectively only responsible from presenting the UI. Each application receives an input search term from the user, and calls a method `SearchByAlias` in the application's `DirectorySearcherLib` PCL.  `SearchByAlias` returns a `User` object, which is used to present information about the search results such as the user's name, user principal name, and phone number.
 
