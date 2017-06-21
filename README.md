@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: dotnet, xamarin
-author: dstrockis
+author: jmprieur
 ---
 
 Integrating Azure AD into a cross platform Xamarin application
