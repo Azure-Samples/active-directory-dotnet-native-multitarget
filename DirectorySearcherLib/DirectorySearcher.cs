@@ -15,7 +15,7 @@ namespace DirectorySearcherLib
     public static class DirectorySearcher
     {
         public static string clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3";
-        public static string commonAuthority = "https://login.windows.net/common";
+        public static string commonAuthority = "https://login.microsoftonline.com/common/";
         public static Uri returnUri = new Uri("http://MyDirectorySearcherApp");        
         const string graphResourceUri = "https://graph.windows.net";
         public static string graphApiVersion = "2013-11-08";
@@ -30,7 +30,7 @@ namespace DirectorySearcherLib
             {
                 // To avoid the user consent page, input the values for your registered application above,
                 // comment out the if statement immediately below, and replace the commonAuthority parameter
-                // with https://login.windows.net/<your.tenant.domain.com>
+                // with https://login.microsoftonline.com/common/<your.tenant.domain.com>
                 AuthenticationContext authContext = new AuthenticationContext(commonAuthority);
                 if (authContext.TokenCache.ReadItems().Count() > 0)
                     authContext = new AuthenticationContext(authContext.TokenCache.ReadItems().First().Authority);
