@@ -63,7 +63,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -1995,7 +1995,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -3784,7 +3784,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -5536,7 +5536,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -7332,7 +7332,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -9084,7 +9084,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -10880,7 +10880,7 @@
           "lib/netcore50/Microsoft.CSharp.dll": {}
         }
       },
-      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
+      "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
         "type": "package",
         "compile": {
           "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll": {},
@@ -12659,44 +12659,33 @@
         "ref/xamarinmac20/_._"
       ]
     },
-    "Microsoft.IdentityModel.Clients.ActiveDirectory/3.9.304210845": {
-      "sha512": "9R0+QuRYGm29FLV4/bOVoHUf4tAMQoE4btYQozckXVrQVgpEGgZpNIQNtKmzHXlbSHkWRxYYRpiNibAuCqNkkA==",
+    "Microsoft.IdentityModel.Clients.ActiveDirectory/3.16.1": {
+      "sha512": "bZeGAqMPk1FI0bzq2CPY9JoKql7GkOFLAnuZz4HaF7sgHxWpXorhDNtDr5BHNYlW2J1BxMlf1gD6uv30NfIdMQ==",
       "type": "package",
-      "path": "microsoft.identitymodel.clients.activedirectory/3.9.304210845",
+      "path": "microsoft.identitymodel.clients.activedirectory/3.16.1",
       "files": [
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
         "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
+        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml",
         "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
+        "lib/MonoAndroid10/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
         "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll.CodeAnalysisLog.xml",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
+        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml",
         "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll.CodeAnalysisLog.xml",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/dnxcore50/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
+        "lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
         "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll.CodeAnalysisLog.xml",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
+        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml",
         "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.XML",
+        "lib/net45/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
         "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll.CodeAnalysisLog.xml",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
+        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml",
         "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.XML",
+        "lib/netcore45/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
+        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll",
+        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
+        "lib/netstandard1.3/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
         "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.dll",
-        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.dll.CodeAnalysisLog.xml",
-        "microsoft.identitymodel.clients.activedirectory.3.9.304210845.nupkg.sha512",
+        "lib/portable-net45+win/Microsoft.IdentityModel.Clients.ActiveDirectory.xml",
+        "microsoft.identitymodel.clients.activedirectory.3.16.1.nupkg.sha512",
         "microsoft.identitymodel.clients.activedirectory.nuspec"
       ]
     },
@@ -15913,7 +15902,7 @@
       "Microsoft.ApplicationInsights >= 1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel >= 1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps >= 1.0.0",
-      "Microsoft.IdentityModel.Clients.ActiveDirectory >= 3.9.304210845",
+      "Microsoft.IdentityModel.Clients.ActiveDirectory >= 3.16.1",
       "Microsoft.NETCore.UniversalWindowsPlatform >= 5.0.0"
     ],
     "UAP,Version=v10.0.10240": []
@@ -15954,7 +15943,7 @@
       "Microsoft.ApplicationInsights": "1.0.0",
       "Microsoft.ApplicationInsights.PersistenceChannel": "1.0.0",
       "Microsoft.ApplicationInsights.WindowsApps": "1.0.0",
-      "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.9.304210845",
+      "Microsoft.IdentityModel.Clients.ActiveDirectory": "3.16.1",
       "Microsoft.NETCore.UniversalWindowsPlatform": "5.0.0"
     },
     "frameworks": {
