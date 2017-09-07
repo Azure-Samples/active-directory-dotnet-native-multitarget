@@ -25,11 +25,8 @@ To run this entire sample you will need:
 - An Internet connection
 - A Windows machine (necessary if you want to run the Windows Store or WPF apps)
 - An OS X machine (necessary if you want to run the iOS app)
-- Visual Studio 2015 (recommended) or Xamarin Studio
+- Visual Studio 2017 (recommended) which comes with Xamarin for iOS, Android, and Universal platform;
 - An Azure subscription (a free trial is sufficient)
-- A Xamarin Business subscription (a [free trial](http://developer.xamarin.com/guides/cross-platform/getting_started/beginning_a_xamarin_trial/) is sufficient)
-- [Xamarin for Windows](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, Visual Studio Integration (recommended for this sample), and optionally Xamarin Studio (in lieu of Visual Studio).
-- [Xamarin for OS X](https://xamarin.com/download), which includes Xamarin.iOS, Xamarin.Android, Xamarin.Mac, and Xamarin Studio.
 
 Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [https://azure.microsoft.com](https://azure.microsoft.com).  All of the Azure AD features used by this sample are available free of charge.
 
@@ -55,7 +52,7 @@ For this sample, you must have at least one user homed in the AAD tenant in whic
 
 This step and the following are actually optional - the sample is configured to run with any tenant out of the box.  But for best understanding, we recommend completing these two steps and registering the application in your own tenant.
 
-1. Sign in to the [Azure management portal](https://manage.windowsazure.com).
+1. Sign in to the [Azure management portal](https://portal.azure.com).
 2. Click on Active Directory in the left hand nav.
 3. Click the directory tenant where you wish to register the sample application.
 4. Click the Applications tab.

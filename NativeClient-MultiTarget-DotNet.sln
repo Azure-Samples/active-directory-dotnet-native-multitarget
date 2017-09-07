@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-iOS", "DirSearchClient-iOS\DirSearchClient-iOS.csproj", "{3966979E-1888-49D0-AAB9-4B9524D8A840}"
 EndProject
@@ -10,13 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-Android", "DirSearchClient-Android\DirSearchClient-Android.csproj", "{C031293B-C7BB-4C60-BF36-44F6C9CF0529}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-Desktop", "DirSearchClient-Desktop\DirSearchClient-Desktop.csproj", "{78E6DFAE-870E-4F2C-9D34-CF4522D95AC7}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{BA05CB04-63C9-455D-9C1C-97E3A01C18F1}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DirSearchClient-Universal", "DirSearchClient-Universal\DirSearchClient-Universal.csproj", "{218B9FE7-B8EB-4366-A851-C903D5A1A3B4}"
 EndProject
@@ -284,5 +277,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A9262C7F-69A8-41B6-BFD5-BD9B5B823284}
 	EndGlobalSection
 EndGlobal
