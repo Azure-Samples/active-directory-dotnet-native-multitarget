@@ -183,3 +183,4 @@ UpgradeLog*.htm
 FakesAssemblies/
 /.vs/NativeClient-MultiTarget-DotNet/v15/sqlite3
 /.vs/config
+/.vs/NativeClient-MultiTarget-DotNet/v15/Server/sqlite3
