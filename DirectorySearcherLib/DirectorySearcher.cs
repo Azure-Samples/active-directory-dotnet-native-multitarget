@@ -25,15 +25,19 @@ namespace DirectorySearcherLib
             AuthenticationResult authResult = null;
             JObject jResult = null;
             List<User> results = new List<User>();
+            AuthenticationContext authContext = new AuthenticationContext(commonAuthority);
 
             try
             {
                 // To avoid the user consent page, input the values for your registered application above,
                 // comment out the if statement immediately below, and replace the commonAuthority parameter
                 // with https://login.microsoftonline.com/common/<your.tenant.domain.com>
-                AuthenticationContext authContext = new AuthenticationContext(commonAuthority);
                 if (authContext.TokenCache.ReadItems().Count() > 0)
                     authContext = new AuthenticationContext(authContext.TokenCache.ReadItems().First().Authority);
+                authResult = await authContext.AcquireTokenSilentAsync(graphResourceUri, clientId);
+            }
+            catch(AdalSilentTokenAcquisitionException)
+            {
                 authResult = await authContext.AcquireTokenAsync(graphResourceUri, clientId, returnUri, parent);
             }
             catch (Exception ee)
