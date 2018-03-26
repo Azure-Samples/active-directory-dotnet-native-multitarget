@@ -15,8 +15,6 @@ namespace DirSearchClient_Android
     [Activity(Label = "DirSearchClient_Android", MainLauncher = true, Icon = "@drawable/icon")]
     public class MainActivity : Activity
     {
-        int count = 1;
-
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {
             base.OnActivityResult(requestCode, resultCode, data);
