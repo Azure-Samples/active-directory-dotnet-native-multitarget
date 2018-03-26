@@ -2,31 +2,33 @@
 services: active-directory
 platforms: dotnet, xamarin
 author: jmprieur
+level: 400
+client: Xamarin, Desktop
+service: Microsoft Graph
+endpoint: AAD V1
 ---
 # Integrating Azure AD into a cross platform Xamarin application
 
-This sample solution shows how to build a native application that uses Xamarin to target several different platforms with a single shared C# code base.  The application signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol.  The access token is sent to the Microsoft Graph API to authenticate the user and obtain information about other users in their organization.
-
-> Looking for previous versions of this code sample? Check out the tags on the [releases](../../releases) GitHub page.
+![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/19/badge)
 
 ## About The Sample
 
-If you would like to get started immediately, skip this section and jump to *How To Run The Sample*.
+### Overview
 
-This sample solution is a "Directory Searcher" that contains five projects, implementing a common component and apps for four different target platforms: iOS, Android, Windows Store 8.1, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all four applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform-specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.
+This sample solution shows how to build a native application that uses Xamarin to target several different platforms with a single shared C# code base.  The application:
 
-In this application, the platform-specific projects are effectively only responsible from presenting the UI. Each application receives an input search term from the user, and calls a method `SearchByAlias` in the application's `DirectorySearcherLib` common library.  `SearchByAlias` returns a `User` object, which is used to present information about the search results such as the user's name, user principal name, and phone number.
+1. signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol.
+2. The access token is sent to the Microsoft Graph API to authenticate the user and obtain information about other users in their organization.
 
-The `DirectorySearcherLib` PCL is the application's shared C# code base, which contains both the identity-related logic and the search-related logic.  It uses ADAL.NET v3, to:
+    ![Overview](./ReadmeFiles/topology.png)
 
-- automatically sign users in with the OAuth 2.0 protocol,
-- acquire an access token for the AAD Graph API,
-- cache tokens,
-- maintain user sessions
+### Scenario
 
-Then, the application  queries the Microsoft Graph API for information about a user with a matching alias, in the authenticated user's tenant. When the user is found, it's returned to the platform-specific UI code.  By writing both the identity and search logic in the `DirectorySearcherLib` PCL, the code only needs to be written once and can be reused across each platform.
+The user enters an alias in the organization of interest an presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. Then if the alias is found in the user's organization, the profile of the corresponding user is written in the UI ( first name, last name, email address and phone number). The picture below shows the UI for a UWP application, but it's really the same for other platforms.
 
-## How To Run The Sample
+![UI](./ReadmeFiles/ui.png)
+
+## How to run the sample
 
 To run this entire sample, you'll need:
 
@@ -50,7 +52,7 @@ Once you have completed your IDE setup, from your IDE or the command-line, run:
 
 `git clone https://github.com/Azure-Samples/active-directory-dotnet-native-multitarget.git`
 
-or download and exact the repository .zip file.
+or download and extract the repository .zip file.
 
 ### Step 3:  Create user(s) in your Azure Active Directory tenant
 
@@ -58,21 +60,18 @@ For this sample, you must have at least one user homed in the AAD tenant in whic
 
 ### Step 4:  Register the sample with your Azure Active Directory tenant
 
-This step and the following are optional - the sample is configured to run with any tenant out of the box.  But for best understanding, we recommend completing these two steps and registering the application in your own tenant.
+This step and the following are optional. Indeed, the sample is configured to run with any tenant out of the box.  But for best understanding, we recommend completing these two steps and registering the application in your own tenant.
 
-1. Sign in to the [Azure management portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click on Active Directory in the left-hand nav.
 3. Click the directory tenant where you wish to register the sample application.
 4. Click the Applications tab.
-5. In the drawer, click Add.
+5. In the drawer, click **Add**.
 6. Click "Add an application my organization is developing"
 7. Enter a friendly name for the application, for example "DirectorySearcherClient", select "Native Client Application", and click next.
 8. Enter a Redirect Uri value of your choosing and of form `http://MyDirectorySearcherApp`.
 9. While still in the Azure portal, click the Configure tab of your application.
 10. Find the Client ID value and copy it aside. You will need this value later when configuring your application.
-
-#
-
 11. In the Permissions to Other Applications configuration section, ensure that "Access your organization's directory" and "Sign in and read user profile" are selected under "Delegated permissions" for Azure Active Directory.  Save the configuration.
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
@@ -86,6 +85,26 @@ This step and the following are optional - the sample is configured to run with 
 
 Clean the solution, rebuild the solution, and run it!  Explore each platform by running each project. Searching for users by their alias, logging in with users in your tenant, and viewing results.  You'll notice that the user needs to consent to the app on first login. This consent is required because the app is configured to work with any tenant.  If you would like to remove this consent flow, see the comments in the `Directory Searcher` class.
 
-## How to Recreate this Sample
+## About the code
 
-Coming soon.
+This sample solution is a "Directory Searcher" that contains five projects, implementing a common component and apps for four different target platforms: iOS, Android, Universal Windows Platform, and WPF.  The solution is built using the [Xamarin Platform](http://xamarin.com/platform), which allows all four applications to be written in C# and ported to the corresponding platform.  Each application contains two major portions: a platform-specific project that is used primarily for UI, and a shared portable class library (PCL) that contains the application logic.
+
+In this application, the platform-specific projects are effectively only responsible from presenting the UI. Each application receives an input search term from the user, and calls a method `SearchByAlias` in the application's `DirectorySearcherLib` common library.  `SearchByAlias` returns a `User` object, which is used to present information about the search results such as the user's name, user principal name, and phone number.
+The `DirectorySearcherLib` PCL is the application's shared C# code base, which contains both the identity-related logic and the search-related logic.  It uses ADAL.NET v3, to:
+
+- automatically sign users in with the OAuth 2.0 protocol,
+- acquire an access token for the AAD Graph API,
+- cache tokens,
+- maintain user sessions
+
+Then, the application  queries the Microsoft Graph API for information about a user with a matching alias, in the authenticated user's tenant. When the user is found, it's returned to the platform-specific UI code.  By writing both the identity and search logic in the `DirectorySearcherLib` PCL, the code only needs to be written once and can be reused across each platform.
+
+## More information
+
+For more information, see ADAL.NET's conceptual documentation:
+
+- [Recommended pattern to acquire a token](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token)
+- [Acquiring tokens interactively in public client applications](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows)
+- [Customizing Token cache serialization](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization)
+
+For more information about how OAuth 2.0 protocols work in this scenario and other scenarios, see [Authentication Scenarios for Azure AD](http://go.microsoft.com/fwlink/?LinkId=394414).
