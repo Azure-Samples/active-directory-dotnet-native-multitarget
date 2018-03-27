@@ -169,6 +169,7 @@ Function ConfigureApplications
    Write-Host "Creating the AAD appplication (MyDirectorySearcherApp)"
    $clientAadApplication = New-AzureADApplication -DisplayName "MyDirectorySearcherApp" `
                                                   -ReplyUrls "https://MyDirectorySearcherApp" `
+                                                  -AvailableToOtherTenants $True `
                                                   -PublicClient $True
    $currentAppId = $clientAadApplication.AppId
    $clientServicePrincipal = New-AzureADServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
@@ -182,7 +183,7 @@ Function ConfigureApplications
    Write-Host "Getting access from 'client' to 'Microsoft Graph'"
    $requiredResourcesAccess = New-Object System.Collections.Generic.List[Microsoft.Open.AzureAD.Model.RequiredResourceAccess]
    $requiredPermissions = GetRequiredPermissions -applicationDisplayName "Microsoft Graph" `
-                                                 -requiredDelegatedPermissions "User.Read";
+                                                 -requiredDelegatedPermissions "User.Read|User.ReadBasic.All";
    $requiredResourcesAccess.Add($requiredPermissions)
    Set-AzureADApplication -ObjectId $clientAadApplication.ObjectId -RequiredResourceAccess $requiredResourcesAccess
    Write-Host "Granted."

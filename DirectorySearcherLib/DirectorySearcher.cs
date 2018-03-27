@@ -1,4 +1,4 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,10 +14,10 @@ namespace DirectorySearcherLib
 {
     public static class DirectorySearcher
     {
-        public static string clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3";
+        public static string clientId = "0464982a-83bf-4361-b4e6-b13acf04d265";
         public static string commonAuthority = "https://login.microsoftonline.com/common/";
-        public static Uri returnUri = new Uri("http://MyDirectorySearcherApp");        
-        const string graphResourceUri = "https://graph.windows.net";
+        public static Uri returnUri = new Uri("https://MyDirectorySearcherApp");        
+        const string graphResourceUri = "https://graph.microsoft.com";
         public static string graphApiVersion = "2013-11-08";
 
         public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent) // add this param
@@ -48,7 +48,7 @@ namespace DirectorySearcherLib
 
             try
             {
-                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
+                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/v1.0/users?$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
                 HttpClient client = new HttpClient();
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);

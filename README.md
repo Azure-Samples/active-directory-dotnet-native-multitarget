@@ -11,7 +11,7 @@ endpoint: AAD V1
 
 ![Build badge](https://identitydivision.visualstudio.com/_apis/public/build/definitions/a7934fdd-dcde-4492-a406-7fad6ac00e17/19/badge)
 
-## About The Sample
+## About this sample
 
 ### Overview
 
@@ -24,7 +24,7 @@ This sample solution shows how to build a native application that uses Xamarin t
 
 ### Scenario
 
-The user enters an alias in the organization of interest an presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. Then if the alias is found in the user's organization, the profile of the corresponding user is written in the UI ( first name, last name, email address and phone number). The picture below shows the UI for a UWP application, but it's really the same for other platforms.
+The user enters an alias in the organization of interest an presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. Then, if the alias is found in the user's organization, the profile of the corresponding user is written in the UI (first name, last name, email address, and phone number). The picture below shows the UI for a UWP application, but it's really the same for other platforms.
 
 ![UI](./ReadmeFiles/ui.png)
 
@@ -39,6 +39,7 @@ To run this entire sample, you'll need:
 - An Azure subscription (a free trial is sufficient)
 
 Every Azure subscription has an associated Azure Active Directory tenant.  If you don't already have an Azure subscription, you can get a free subscription by signing up at [https://azure.microsoft.com](https://azure.microsoft.com).  All of the Azure AD features used by this sample are available free of charge.
+This sample will not work with a Microsoft account (formerly Windows Live account). Therefore, if you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory before, you need to do that now.
 
 ### Step 1: Set up your Xamarin development environment
 
@@ -72,18 +73,24 @@ This step and the following are optional. Indeed, the sample is configured to ru
 8. Enter a Redirect Uri value of your choosing and of form `http://MyDirectorySearcherApp`.
 9. While still in the Azure portal, click the Configure tab of your application.
 10. Find the Client ID value and copy it aside. You will need this value later when configuring your application.
-11. In the Permissions to Other Applications configuration section, ensure that "Access your organization's directory" and "Sign in and read user profile" are selected under "Delegated permissions" for Azure Active Directory.  Save the configuration.
+11. In the Required Permissions section:
+
+- click on the **Add** button
+- then **Select an API** and choose "Microsoft Graph" and click the **Select** Button
+- then select the permissions: In the "Enable Access" pane, in the "Delegated permissions" section, check the "Sign in and read user profile" and "Read all user's basic profiles". These permissions don't require admin consent and therefore you won't require a tenant admin to approve the application. Press **Select** at the bottom of the pane, and then **Done** in the "Add API access pane"
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
 1. Open the solution in Visual Studio 2015.
-2. Open the `DirectorySearcher.cs` file in the `DirectorySearcherLib (Portable)` project.
+2. Open the `DirectorySearcherLib\DirectorySearcher.cs` file in the `DirectorySearcherLib (Portable)` project.
 3. Find the `clientId` member variable and replace its value with the Client ID you copied from the Azure portal.
 4. Find the `returnUri` member variable and replace the value with the redirect Uri you registered in the Azure portal.
 
 ### Step 6:  Run the sample(s)
 
 Clean the solution, rebuild the solution, and run it!  Explore each platform by running each project. Searching for users by their alias, logging in with users in your tenant, and viewing results.  You'll notice that the user needs to consent to the app on first login. This consent is required because the app is configured to work with any tenant.  If you would like to remove this consent flow, see the comments in the `Directory Searcher` class.
+
+> Note that if your organization requires Multiple Factor Authentication (MFA), and you try to use the PIN, the certificate will be proposed, but the PIN window won't be presented. This is a known issue with WIA. As a workaround, you might want to use phone authentication (proposed as alternative ways of doing MFA)
 
 ## About the code
 

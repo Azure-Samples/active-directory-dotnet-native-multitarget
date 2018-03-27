@@ -1,9 +1,9 @@
 {
   "Sample": {
-    "Title": "Calling a downstream web API from a web API using Azure AD",
+    "Title": "Integrating Azure AD into a cross platform Xamarin application",
     "Level": 400,
-    "Client": ".NET Framework 4.5 Console, JavaScript SPA",
-    "Service": "ASP.NET Web API"
+    "Client": "Xamarin, Desktop",
+    "Service": "Microsoft Graph"
   },
   /*
     This section describes the Azure AD Applications to configure, and their dependencies
@@ -13,10 +13,11 @@
       "Id": "client",
       "Name": "MyDirectorySearcherApp",
       "IsPublicClient": true,
+      "IsAvailableToOtherTenants": true,
       "RequiredResourcesAccess": [
         {
           "Resource": "Microsoft Graph",
-          "DelegatedPermissions": [ "User.Read" ]
+          "DelegatedPermissions": [ "User.Read", "User.ReadBasic.All" ]
         }
       ]
     }
@@ -31,13 +32,13 @@
   "CodeConfiguration": [
     {
       "App": "client",
+
       "SettingKind": "Text",
       "SettingFile": "\\..\\DirectorySearcherLib\\DirectorySearcher.cs",
       "Mappings": [
         {
           "key": "public static string clientId",
-          "value": ".AppId",
-          "delimiter" :  "="
+          "value": ".AppId"
         }
       ]
     }
