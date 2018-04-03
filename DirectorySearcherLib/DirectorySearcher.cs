@@ -18,7 +18,6 @@ namespace DirectorySearcherLib
         public static string commonAuthority = "https://login.microsoftonline.com/common/";
         public static Uri returnUri = new Uri("https://MyDirectorySearcherApp");        
         const string graphResourceUri = "https://graph.microsoft.com";
-        public static string graphApiVersion = "2013-11-08";
 
         public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent) // add this param
         {
