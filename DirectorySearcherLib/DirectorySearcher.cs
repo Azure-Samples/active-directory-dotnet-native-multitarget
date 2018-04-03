@@ -1,4 +1,4 @@
-﻿using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
@@ -14,11 +14,10 @@ namespace DirectorySearcherLib
 {
     public static class DirectorySearcher
     {
-        public static string clientId = "a5d92493-ae5a-4a9f-bcbf-9f1d354067d3";
+        public static string clientId = "8313f713-eaf3-499c-ac75-516592f38d5f";
         public static string commonAuthority = "https://login.microsoftonline.com/common/";
-        public static Uri returnUri = new Uri("http://MyDirectorySearcherApp");        
-        const string graphResourceUri = "https://graph.windows.net";
-        public static string graphApiVersion = "2013-11-08";
+        public static Uri returnUri = new Uri("https://MyDirectorySearcherApp");        
+        const string graphResourceUri = "https://graph.microsoft.com";
 
         public static async Task<List<User>> SearchByAlias(string alias, IPlatformParameters parent) // add this param
         {
@@ -26,7 +25,7 @@ namespace DirectorySearcherLib
             JObject jResult = null;
             List<User> results = new List<User>();
             AuthenticationContext authContext = new AuthenticationContext(commonAuthority);
-
+            
             try
             {
                 // To avoid the user consent page, input the values for your registered application above,
@@ -48,7 +47,7 @@ namespace DirectorySearcherLib
 
             try
             {
-                string graphRequest = String.Format(CultureInfo.InvariantCulture, "{0}/{1}/users?api-version={2}&$filter=mailNickname eq '{3}'", graphResourceUri, authResult.TenantId, graphApiVersion, alias);
+                string graphRequest = $"{graphResourceUri}/v1.0/users?$filter=mailNickname eq '{alias}'";
                 HttpClient client = new HttpClient();
                 HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Get, graphRequest);
                 request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
@@ -81,7 +80,7 @@ namespace DirectorySearcherLib
                     givenName = (string)result["givenName"],
                     surname = (string)result["surname"],
                     userPrincipalName = (string)result["userPrincipalName"],
-                    telephoneNumber = (string)result["telephoneNumber"] == null ? "Not Listed." : (string)result["telephoneNumber"]
+                    telephoneNumber = (string)result["telephoneNumber"] ?? "Not Listed."
                 });
             }
 
