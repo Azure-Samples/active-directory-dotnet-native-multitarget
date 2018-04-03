@@ -1,4 +1,4 @@
-T---
+---
 services: active-directory
 platforms: dotnet
 author: jmprieur
