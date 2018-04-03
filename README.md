@@ -1,4 +1,4 @@
----
+T---
 services: active-directory
 platforms: dotnet
 author: jmprieur
@@ -20,14 +20,14 @@ This sample solution shows how to build a native application that uses Xamarin t
 1. signs users in with Azure Active Directory (AAD), using the Active Directory Authentication Library (ADAL) to obtain a JWT access token through the OAuth 2.0 protocol.
 2. The access token is sent to the Microsoft Graph API to authenticate the user and obtain information about other users in their organization.
 
-    ![Overview](./ReadmeFiles/topology.png)
+    ![Overview](./ReadmeFiles/Topology.png)
 
 ### Scenario
 
 The user enters an alias in the organization of interest an presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. 
 Then, if the alias is found in the user's organization, the profile of the corresponding user is written in the UI. This profile consists in first name, last name, email address, and phone number. The picture below shows the UI for a UWP application, but it's really the same for other platforms.
 
-![UI](./ReadmeFiles/ui.png)
+![UI](./ReadmeFiles/UI.png)
 
 ## How to run the sample
 
