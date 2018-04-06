@@ -24,7 +24,7 @@ This sample solution shows how to build a native application that uses Xamarin t
 
 ### Scenario
 
-The user enters an alias in the organization of interest an presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. 
+The user enters an alias in the organization of interest and presses search. If needed, the user is asked to sign in to that organization and to consent for the application to read user's basic profile. 
 Then, if the alias is found in the user's organization, the profile of the corresponding user is written in the UI. This profile consists in first name, last name, email address, and phone number. The picture below shows the UI for a UWP application, but it's really the same for other platforms.
 
 ![UI](./ReadmeFiles/UI.png)
@@ -113,7 +113,7 @@ Use [Stack Overflow](http://stackoverflow.com/questions/tagged/adal) to get supp
 Ask your questions on Stack Overflow first and browse existing issues to see if someone has asked your question before.
 Make sure that your questions or comments are tagged with [`adal` `dotnet`].
 
-If you find and bug in the sample, please raise the issue on [GitHub Issues](../../issues).
+If you find a bug in the sample, please raise the issue on [GitHub Issues](../../issues).
 
 To provide a recommendation, visit the following [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
 
