@@ -68,13 +68,15 @@ Function GetRequiredPermissions([string] $applicationDisplayName, [string] $requ
 Function UpdateLine([string] $line, [string] $value)
 {
     $index = $line.IndexOf(':')
+    $delimiter = ','
     if ($index -eq -1)
     {
         $index = $line.IndexOf('=')
+        $delimiter = ';'
     }
     if ($index -ige 0)
     {
-        $line = $line.Substring(0, $index+1) + " """+$value + ""","
+        $line = $line.Substring(0, $index+1) + " "+'"'+$value+'"'+$delimiter
     }
     return $line
 }
@@ -152,6 +154,8 @@ Function ConfigureApplications
                                                   -ReplyUrls "https://MyDirectorySearcherApp" `
                                                   -AvailableToOtherTenants $True `
                                                   -PublicClient $True
+
+
    $currentAppId = $clientAadApplication.AppId
    $clientServicePrincipal = New-AzureADServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
    Write-Host "Done."
@@ -160,9 +164,9 @@ Function ConfigureApplications
    $clientPortalUrl = "https://portal.azure.com/#@"+$tenantName+"/blade/Microsoft_AAD_IAM/ApplicationBlade/appId/"+$clientAadApplication.AppId+"/objectId/"+$clientAadApplication.ObjectId
    Add-Content -Value "<tr><td>client</td><td>$currentAppId</td><td><a href='$clientPortalUrl'>MyDirectorySearcherApp</a></td></tr>" -Path createdApps.html
 
+   $requiredResourcesAccess = New-Object System.Collections.Generic.List[Microsoft.Open.AzureAD.Model.RequiredResourceAccess]
    # Add Required Resources Access (from 'client' to 'Microsoft Graph')
    Write-Host "Getting access from 'client' to 'Microsoft Graph'"
-   $requiredResourcesAccess = New-Object System.Collections.Generic.List[Microsoft.Open.AzureAD.Model.RequiredResourceAccess]
    $requiredPermissions = GetRequiredPermissions -applicationDisplayName "Microsoft Graph" `
                                                  -requiredDelegatedPermissions "User.Read|User.ReadBasic.All";
    $requiredResourcesAccess.Add($requiredPermissions)

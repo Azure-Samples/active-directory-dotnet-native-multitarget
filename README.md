@@ -56,6 +56,9 @@ Once you've completed your IDE setup, from your IDE or the command-line, run:
 
 or download and extract the repository .zip file.
 
+> Given that the name of the sample is pretty long, and so are the name of the referenced NuGet pacakges, you might want to clone it in a folder close to the root of your hard drive, to avoid file size limitations on Windows.
+
+
 ### Step 3:  Create user(s) in your Azure Active Directory tenant
 
 For this sample, you must have at least one user homed in the AAD tenant in which you will register the application.  You can't run the sample with your Microsoft Account, so create a new user with the same domain as your tenant if necessary.
@@ -67,6 +70,9 @@ This step and the following are optional. Indeed, the sample is configured to ru
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
 1. Click on **All services** in the left-hand nav, and choose **Azure Active Directory**.
+
+#### Register the client app (MyDirectorySearcherApp)
+
 1. In the  **Azure Active Directory** pane, click on **App registrations** and choose **New application registration**.
 1. Enter a friendly name for the application, for example 'MyDirectorySearcherApp' and select 'Native' as the *Application Type*.
 1. For the *Redirect URI*, enter `https://<your_tenant_name>/MyDirectorySearcherApp`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.
@@ -82,10 +88,13 @@ This step and the following are optional. Indeed, the sample is configured to ru
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
-1. Open the solution in Visual Studio 2015.
-2. Open the `DirectorySearcherLib\DirectorySearcher.cs` file in the `DirectorySearcherLib (Portable)` project.
-3. Find the `clientId` member variable and replace its value with the Client ID you copied from the Azure portal.
-4. Find the `returnUri` member variable and replace the value with the redirect Uri you registered in the Azure portal.
+In the steps below, ClientID is the same as Application ID or AppId.
+
+Open the solution in Visual Studio to configure the projects
+
+1. Open the `DirectorySearcherLib\DirectorySearcher.cs` file in the `DirectorySearcherLib (Portable)` project.
+1. Find the `clientId` member variable and replace its value with the Client ID you copied from the Azure portal.
+1. Find the `returnUri` member variable and replace the value with the redirect Uri you registered in the Azure portal.
 
 ### Step 6:  Run the sample(s)
 
