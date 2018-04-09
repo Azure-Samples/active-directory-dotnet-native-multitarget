@@ -79,7 +79,6 @@ This step and the following are optional. Indeed, the sample is configured to ru
 1. Click on **Create** to create the application.
 1. In the succeeding page, Find the *Application ID* value and copy it to the clipboard. You'll need it to configure the Visual Studio configuration file for this project.
 1. Then click on **Settings**, and choose **Properties**.
-1. For the App ID URI, replace the guid in the generated URI 'https://\<your_tenant_name\>/\<guid\>', with the name of your service, for example, 'https://\<your_tenant_name\>/MyDirectorySearcherApp' (replacing `<your_tenant_name>` with the name of your Azure AD tenant)
 1. Configure Permissions for your application. To that extent, in the Settings menu, choose the 'Required permissions' section and then,
    click on **Add**, then **Select an API**, and type `Microsoft Graph` in the textbox.
    Then, click on  **Select Permissions** and select the permissions:
