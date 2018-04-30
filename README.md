@@ -76,8 +76,8 @@ This step and the following are optional. Indeed, the sample is configured to ru
 1. In the  **Azure Active Directory** pane, click on **App registrations** and choose **New application registration**.
 1. Enter a friendly name for the application, for example 'MyDirectorySearcherApp' and select 'Native' as the *Application Type*.
 1. For the *Redirect URI*, enter `https://<your_tenant_name>/MyDirectorySearcherApp`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.
-1. Click on **Create** to create the application.
-1. In the succeeding page, Find the *Application ID* value and copy it to the clipboard. You'll need it to configure the Visual Studio configuration file for this project.
+1. Click **Create** to create the application.
+1. In the succeeding page, Find the *Application ID* value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
 1. Then click on **Settings**, and choose **Properties**.
 1. Configure Permissions for your application. To that extent, in the Settings menu, choose the 'Required permissions' section and then,
    click on **Add**, then **Select an API**, and type `Microsoft Graph` in the textbox.
@@ -87,7 +87,7 @@ This step and the following are optional. Indeed, the sample is configured to ru
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
-In the steps below, ClientID is the same as Application ID or AppId.
+In the steps below, "ClientID" is the same as "Application ID" or "AppId".
 
 Open the solution in Visual Studio to configure the projects
 
