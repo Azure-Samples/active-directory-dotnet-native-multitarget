@@ -68,8 +68,12 @@ For this sample, you must have at least one user homed in the AAD tenant in whic
 This step and the following are optional. Indeed, the sample is configured to run with any tenant out of the box.  But for best understanding, we recommend completing these two steps and registering the application in your own tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, click on your account and under the **Directory** list, choose the Active Directory tenant where you wish to register your application.
+1. On the top bar, click on your account, and then on **Switch Directory**. 
+1. Once the *Directory + subscription* pane opens, choose the Active Directory tenant where you wish to register your application, from the *Favorites* or *All Directories* list.
 1. Click on **All services** in the left-hand nav, and choose **Azure Active Directory**.
+
+> In the next steps, you might need the tenant name (or directory name) or the tenant ID (or directory ID). These are presented in the **Properties**
+of the Azure Active Directory window respectively as *Name* and *Directory ID*
 
 #### Register the client app (MyDirectorySearcherApp)
 
