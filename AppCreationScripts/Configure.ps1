@@ -1,3 +1,10 @@
+[CmdletBinding()]
+param(
+    [PSCredential] $Credential,
+    [Parameter(Mandatory=$False, HelpMessage='Tenant ID (This is a GUID which represents the "Directory ID" of the AzureAD tenant into which you want to create the apps')]
+    [string] $tenantId
+)
+
 <#
  This script creates the Azure AD applications needed for this sample and updates the configuration files
  for the visual Studio projects from the data in the Azure AD applications.
@@ -67,12 +74,12 @@ Function GetRequiredPermissions([string] $applicationDisplayName, [string] $requ
 
 Function UpdateLine([string] $line, [string] $value)
 {
-    $index = $line.IndexOf(':')
-    $delimiter = ','
+    $index = $line.IndexOf('=')
+    $delimiter = ';'
     if ($index -eq -1)
     {
-        $index = $line.IndexOf('=')
-        $delimiter = ';'
+        $index = $line.IndexOf(':')
+        $delimiter = ','
     }
     if ($index -ige 0)
     {
@@ -111,15 +118,7 @@ Function ConfigureApplications
    configuration files in the client and service project  of the visual studio solution (App.Config and Web.Config)
    so that they are consistent with the Applications parameters
 #> 
-    [CmdletBinding()]
-    param(
-        [PSCredential] $Credential,
-        [Parameter(HelpMessage='Tenant ID (This is a GUID which represents the "Directory ID" of the AzureAD tenant into which you want to create the apps')]
-        [string] $tenantId
-    )
 
-   process
-   {
     # $tenantId is the Active Directory Tenant. This is a GUID which represents the "Directory ID" of the AzureAD tenant
     # into which you want to create the apps. Look it up in the Azure portal in the "Properties" of the Azure AD.
 
@@ -145,11 +144,15 @@ Function ConfigureApplications
     {
         $tenantId = $creds.Tenant.Id
     }
+
     $tenant = Get-AzureADTenantDetail
     $tenantName =  ($tenant.VerifiedDomains | Where { $_._Default -eq $True }).Name
 
+    # Get the user running the script
+    $user = Get-AzureADUser -ObjectId $creds.Account.Id
+
    # Create the client AAD application
-   Write-Host "Creating the AAD appplication (MyDirectorySearcherApp)"
+   Write-Host "Creating the AAD application (MyDirectorySearcherApp)"
    $clientAadApplication = New-AzureADApplication -DisplayName "MyDirectorySearcherApp" `
                                                   -ReplyUrls "https://MyDirectorySearcherApp" `
                                                   -AvailableToOtherTenants $True `
@@ -158,29 +161,36 @@ Function ConfigureApplications
 
    $currentAppId = $clientAadApplication.AppId
    $clientServicePrincipal = New-AzureADServicePrincipal -AppId $currentAppId -Tags {WindowsAzureActiveDirectoryIntegratedApp}
-   Write-Host "Done."
+
+   # add the user running the script as an app owner
+   Add-AzureADApplicationOwner -ObjectId $clientAadApplication.ObjectId -RefObjectId $user.ObjectId
+   Write-Host "'$($user.UserPrincipalName)' added as an application owner to app '$($clientServicePrincipal.DisplayName)'"
+
+   Write-Host "Done creating the client application (MyDirectorySearcherApp)"
 
    # URL of the AAD application in the Azure portal
    $clientPortalUrl = "https://portal.azure.com/#@"+$tenantName+"/blade/Microsoft_AAD_IAM/ApplicationBlade/appId/"+$clientAadApplication.AppId+"/objectId/"+$clientAadApplication.ObjectId
    Add-Content -Value "<tr><td>client</td><td>$currentAppId</td><td><a href='$clientPortalUrl'>MyDirectorySearcherApp</a></td></tr>" -Path createdApps.html
 
    $requiredResourcesAccess = New-Object System.Collections.Generic.List[Microsoft.Open.AzureAD.Model.RequiredResourceAccess]
+
    # Add Required Resources Access (from 'client' to 'Microsoft Graph')
    Write-Host "Getting access from 'client' to 'Microsoft Graph'"
    $requiredPermissions = GetRequiredPermissions -applicationDisplayName "Microsoft Graph" `
                                                  -requiredDelegatedPermissions "User.Read|User.ReadBasic.All";
    $requiredResourcesAccess.Add($requiredPermissions)
+
+
    Set-AzureADApplication -ObjectId $clientAadApplication.ObjectId -RequiredResourceAccess $requiredResourcesAccess
-   Write-Host "Granted."
+   Write-Host "Granted permissions."
 
    # Update config file for 'client'
    $configFile = $pwd.Path + "\..\DirectorySearcherLib\DirectorySearcher.cs"
    Write-Host "Updating the sample code ($configFile)"
    $dictionary = @{ "public static string clientId" = $clientAadApplication.AppId };
    UpdateTextFile -configFilePath $configFile -dictionary $dictionary
-   Add-Content -Value "</tbody></table></body></html>" -Path createdApps.html
 
-  }
+   Add-Content -Value "</tbody></table></body></html>" -Path createdApps.html  
 }
 
 
