@@ -15920,12 +15920,12 @@
   },
   "project": {
     "restore": {
-      "projectUniqueName": "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\DirSearchClient-Universal.csproj",
+      "projectUniqueName": "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\DirSearchClient-Universal.csproj",
       "projectName": "DirSearchClient-Universal",
-      "projectPath": "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\DirSearchClient-Universal.csproj",
-      "projectJsonPath": "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\project.json",
+      "projectPath": "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\DirSearchClient-Universal.csproj",
+      "projectJsonPath": "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\project.json",
       "packagesPath": "C:\\Users\\jeferrie\\.nuget\\packages\\",
-      "outputPath": "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\obj\\",
+      "outputPath": "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirSearchClient-Universal\\obj\\",
       "projectStyle": "ProjectJson",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
@@ -15936,15 +15936,14 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\drop\\src\\Microsoft.Identity.Client\\bin\\Release": {},
+        "C:\\drop\\src\\packages\\adal": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "uap10.0.10240": {
           "projectReferences": {
-            "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirectorySearcherLib\\DirectorySearcherLib.csproj": {
-              "projectPath": "C:\\gitSamples\\active-directory-dotnet-native-multitarget\\DirectorySearcherLib\\DirectorySearcherLib.csproj"
+            "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirectorySearcherLib\\DirectorySearcherLib.csproj": {
+              "projectPath": "C:\\GitSamples\\adalXamarin\\active-directory-dotnet-native-multitarget\\DirectorySearcherLib\\DirectorySearcherLib.csproj"
             }
           }
         }
