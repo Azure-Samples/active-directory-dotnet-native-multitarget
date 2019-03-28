@@ -77,17 +77,12 @@ of the Azure Active Directory window respectively as *Name* and *Directory ID*
 
 #### Register the client app (MyDirectorySearcherApp)
 
-1. In the  **Azure Active Directory** pane, click on **App registrations** and choose **New application registration**.
+1. In the  **Azure Active Directory** pane, click on [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) and choose **New application**.
 1. Enter a friendly name for the application, for example 'MyDirectorySearcherApp' and select 'Native' as the *Application Type*.
-1. For the *Redirect URI*, enter `https://<your_tenant_name>/MyDirectorySearcherApp`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.
-1. Click **Create** to create the application.
-1. In the succeeding page, Find the *Application ID* value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
-1. Then click on **Settings**, and choose **Properties**.
-1. Configure Permissions for your application. To that extent, in the Settings menu, choose the 'Required permissions' section and then,
-   click on **Add**, then **Select an API**, and type `Microsoft Graph` in the textbox.
-   Then, click on  **Select Permissions** and select the permissions:
-   In the "Enable Access" pane, in the "Delegated permissions" section, check the "Sign in and read user profile" and "Read all user's basic profiles".
-   These permissions don't require admin consent and therefore you won't require a tenant admin to approve the application. Press **Select** at the bottom of the pane, and then **Done** in the "Add API access pane"
+1. Under the **Redirect URIs** section, under the **Suggested Redirect URIs for public clients(mobile, desktop)** group, select `https://login.microsoftonline.com/common/oauth2/nativeclient` from the list of pre-generated redirect URIs provided for you.
+1. Click **Register** to create the application.
+1. In the succeeding page, Find the *Application (client) ID* value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
+1. Next, click **API Permissions** to configure permissions for your application. Click on **Add a permission**, then **Select an API**, and select `Microsoft Graph` from the list below. Select "Delegated permissions", and then in the **Select permissions** section, search for and select the "User.Read- Sign in and read user profile" and "User.ReadBasic.All- Read all user's basic profiles" permissions. These permissions don't require admin consent and therefore you won't require a tenant admin to approve the application. Press **Add permissions** at the bottom of the pane.
 
 ### Step 5:  Configure the sample to use your Azure AD tenant
 
